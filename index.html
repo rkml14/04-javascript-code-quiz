@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Code Quiz!</title>
+</head>
+
+<body>
+    <h1>Multiple-Choice Quiz!</h1>
+    <p> Try to answer the following 5 questions related to Javascript in 60 seconds! Beware: Incorrect answers will
+        deduct 5 seconds </p>
+
+
+    <!--where questions will appear -->
+    <div class="current-time"> </div>
+    <h3>seconds remaining</h3>
+
+
+
+    <main id="questionArea" class = "hide">
+        <h2 id="questionText"></h2>
+        <ul>
+            <li>
+                <button id="button0" class="choiceButton" onclick="checkAnswer(0)" ></button>
+            </li>
+            <li>
+                <button id="button1" class="choiceButton" onclick="checkAnswer(1)"></button>
+            </li>
+            <li>
+                <button id="button2" class="choiceButton" onclick="checkAnswer(2)"></button>
+            </li>
+            <li>
+                <button id="button3" class="choiceButton" onclick="checkAnswer(3)"></button>
+            </li>
+        </ul>
+    </main>
+
+    <button class="start-button">Start</button>
+
+
+
+    <!-- put the high scores here  -->
+    <div class="high-scores"></div>
+    <button class="reset-button">Reset High Score</button>
+
+
+
+
+
+
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
