@@ -113,18 +113,28 @@ function renderQuestions() {
 //   questionArea.classList.add("hide");  //not sure if needed
 //   scoreEl.textContent = 'You scored " + score + "out of 5 correctly!";
 //  submit.classList.remove("hide");
+//  clearInterval(timer);
 //  highScore();
 // }
 
 //still need a reset high score button
 // function highScore(){
-//   highScore.classList.remove("hide");
-
+//  highScore.classList.remove("hide");
+//  
 // }
 //still need a save inital & high score function
 
 
 
 
+// function getHighScore(){  //working from module 25
 
 
+// let highScore = {
+//   inititals: initials;
+//   finalScore: score;
+//   };
+//   localStorage.setItem("highScore", JSON.stringify(highScore));
+// }
+
+//i need a clearInerval for the timer in the endquiz
