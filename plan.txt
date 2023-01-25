@@ -37,8 +37,16 @@ what I need:
         event.listener("click", function{})
         timer function
 
-questions render to the page
-probably some sort of loop, 5 questions
+    questions render to the page
+        probably some sort of loop, 5 questions
+
+need endQuiz
+    total score of right answers, displays for user
+    stops timer
+    resets timer
+    asks for initials
+    stores & displays initials plus score
+
 
 
 

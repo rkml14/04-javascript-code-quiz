@@ -29,24 +29,30 @@ answer:0,
 //Global variables for the timer   
 let currentTime = document.querySelector(".current-time");
 let timer = document.querySelector(".start-button");
-let highScore = document.querySelector(".reset-button");
+let highScore = document.querySelector("#reset-button");
 let timerCount = 61;
-let timerPenalty = 5;
-let holdInterval ;
+let timerPenalty = 10;
+let holdInterval = 0;  
 
 
 //Global variables for the questions
 let questionArea = document.querySelector("#questionArea");
 let questionText = document.querySelector("#questionText");
+let introduction = document.querySelector("#introduction");
 let questionIndex = 0;
 
+//Global variables for added text
+let questionEl = document.createElement("div");
+let scoreEl = document.createElement("div");
 
 //Global variables 
-let score = 0;  //i don't think i need this.  shouldn't score now just be what's left in timerCount?
+let score = 0;  
 
 
 
+//Function to countdown timer and display it on the browswer
   function startTimer() { 
+    introduction.classList.add("hide");
     questionArea.classList.remove("hide"); 
     timer.classList.add("hide");
     renderQuestions();
@@ -61,25 +67,31 @@ let score = 0;  //i don't think i need this.  shouldn't score now just be what's
       }, 1000);
     }
 
-    timer.addEventListener('click', startTimer);  //when start button clicked, calls startTimer function
+//When start button clicked, calls startTimer function    
+  timer.addEventListener('click', startTimer);  
 
 
 function checkAnswer(index) {
   let currentQuestion = quizArray[questionIndex];
+ 
   if (currentQuestion.answer === index) {
     score++;  //need to do something with this
-    // createDiv.textContent = "Correct! The answer is " + quizArray[questionIndex].answer;
+    // questionEl.textContent = "Correct! The answer is " + quizArray[questionIndex].answer;  THIS ISN'T WORKING 
+  }
+  else {
+    timerCount = timerCount - timerPenalty;  //takes 5 seconds off for wrong answer
+    // questionEl.textContent = "Wrong! The answer is " + quizArray[questionIndex].answer; THIS ISN'T WORKING
   }
   questionIndex++;
   if (questionIndex < quizArray.length) {
     renderQuestions();
   }
   else {
-    endQuiz();  //still have to make would have highscore
+    endQuiz();  //NEEDS TO BE CREATED
   }
 }
 
-// The following function renders items in a todo list as buttons
+// The following function renders questions/options as buttons
 function renderQuestions() {
     let currentQuestion = quizArray[questionIndex];
     questionText.textContent = currentQuestion.question;
@@ -91,12 +103,20 @@ function renderQuestions() {
 }
 
 
-function endQuiz() {
+// function endQuiz() {
+//   questionArea.classList.add("hide");  //not sure if needed
+//   scoreEl.textContent = score;
 
 
-}
 
+// }
 
+//still need a reset high score button
+// function highScore(){
+//   highScore.classList.remove("hide");
+
+// }
+//still need a save inital & high score function
 
 
 
