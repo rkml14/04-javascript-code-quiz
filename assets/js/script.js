@@ -29,7 +29,8 @@ answer:0,
 //Global variables for the timer   
 let currentTime = document.querySelector(".current-time");
 let timer = document.querySelector(".start-button");
-let timerCount = 60;
+let highScore = document.querySelector(".reset-button");
+let timerCount = 61;
 let timerPenalty = 5;
 let holdInterval ;
 
@@ -60,12 +61,14 @@ let score = 0;  //i don't think i need this.  shouldn't score now just be what's
       }, 1000);
     }
 
-timer.addEventListener('click', startTimer);  //when start button clicked, calls startTimer function
+    timer.addEventListener('click', startTimer);  //when start button clicked, calls startTimer function
+
 
 function checkAnswer(index) {
   let currentQuestion = quizArray[questionIndex];
   if (currentQuestion.answer === index) {
-    score++;
+    score++;  //need to do something with this
+    // createDiv.textContent = "Correct! The answer is " + quizArray[questionIndex].answer;
   }
   questionIndex++;
   if (questionIndex < quizArray.length) {
@@ -75,11 +78,6 @@ function checkAnswer(index) {
     endQuiz();  //still have to make would have highscore
   }
 }
-
-
-
-
-
 
 // The following function renders items in a todo list as buttons
 function renderQuestions() {
@@ -93,6 +91,10 @@ function renderQuestions() {
 }
 
 
+function endQuiz() {
+
+
+}
 
 
 
@@ -101,15 +103,3 @@ function renderQuestions() {
 
 
 
-
-
-
-  // The startGame function is called when the start button is clicked  - borrowed from Mini Project 
-function startGame() {
-
-    // Prevents start button from being clicked when round is in progress
-    startButton.disabled = true;
-    startTimer()
-  }
-
-  //   event.preventDefault();  going to be needed for buttons  
