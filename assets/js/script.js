@@ -98,7 +98,6 @@ function renderQuestions() {
   }
 }
 
-
 // Function to retrieve previous high scores from local storage
 function showAllScores() {
   var existingScores = JSON.parse(localStorage.getItem("high-score")) || [];

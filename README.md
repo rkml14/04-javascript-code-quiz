@@ -8,7 +8,12 @@ Once the user opens the application, they are given 60 seconds to answer 5 quest
 
 At the end, they are invited to submit their initials & final score for the High Scores tracking. 
 
-
+Skills learned:  
+- listening for keyboard events
+- storage & retrieval of information to local storage
+- setting variables that navigate the DOM via accessing elementsById, querySelector 
+- furthered function creation & knowledge
+- furthered experience with HTML & CSS 
 
 ## Installation
 
