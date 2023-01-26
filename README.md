@@ -18,7 +18,9 @@ None necessary, it can be accessed via GitHub at [RKML14's Deployed GitHub repo]
 
 Click start! 
 
+## Thank you
 
+A special thanks to Dominique Meeks Gombe for her amazing tutoring!  
 
 ## Author
 

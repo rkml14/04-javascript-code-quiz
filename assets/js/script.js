@@ -34,7 +34,7 @@ let quizArray = [
 //Global variables for the timer   
 let currentTime = document.querySelector(".current-time");
 let timer = document.querySelector(".start-button");
-let highScore = document.querySelector("#reset-button");
+let resetButton = document.querySelector("#reset-button");
 let submitButton = document.querySelector("#submit-button");
 let timerCount = 61;
 let timerPenalty = 10;
@@ -149,6 +149,8 @@ function endQuiz() {
   clearInterval(holdInterval);
   currentTime.classList.add("hide");
 }
+
+
 
 
 

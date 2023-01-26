@@ -20,7 +20,7 @@ body {
 }
 
 /* Sets style for the buttons*/
-.choiceButton, .start-button, .reset-button {
+.choiceButton, .start-button, #reset-button, #submit-button {
     top: 50%;
     background-color: #371a5c;
     color: #fff;
@@ -31,13 +31,13 @@ body {
     margin-bottom: 10px;
 }
 /*The user is hovering over the element*/
-.choiceButton:hover, .start-button:hover, .reset-button:hover {
+.choiceButton:hover, .start-button:hover, #reset-button:hover, #submit-button:hover{
     background-color: #a683d4;
     color: #fff;
 }
   
   /* The user is actively pressing down on the element */
-  .choiceButton:active, .start-button:active, .reset-button:active {
+  .choiceButton:active, .start-button:active, #reset-button:active, #submit-button:active {
     font-size: 180%;
     box-shadow: 0 0 10px #000 inset;
   }
