@@ -55,7 +55,7 @@ body {
     margin-left: 20px;
     margin-bottom: 10px;
 }
-/*The user is hovering over the  button element*/
+/*The user is hovering over the button element*/
 .choiceButton:hover, .start-button:hover, #reset-button:hover, #submit-button:hover{
     background-color: rgb(135, 218, 218);
     color: #fff;
@@ -65,4 +65,24 @@ body {
   .choiceButton:active, .start-button:active, #reset-button:active, #submit-button:active {
     font-size: 180%;
     box-shadow: 0 0 10px #000 inset;
+  }
+
+  @media screen and (max-width: 768px){
+    body {
+        max-width: 768px;
+    }
+    #introduction, #questionArea, #final-score{
+        position: absolute;
+        left: 10%;
+    }
+  }
+
+  @media screen and (max-width: 640px){
+    body {
+        max-width: 640px;
+    }
+    #introduction, #questionArea, #final-score{
+        position: absolute;
+        left: 5%;
+    }
   }
