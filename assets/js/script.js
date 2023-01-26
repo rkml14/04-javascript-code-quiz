@@ -1,7 +1,3 @@
-//  RKML 
-// Setting Questions for the Quiz
-
-
 //currentQuestion represents the whole question object (question to answer)
 let quizArray = [
   {
@@ -31,7 +27,7 @@ let quizArray = [
   },
 ];
 
-//Global variables for the timer   
+//Global variables for the timer & buttons 
 let currentTime = document.querySelector(".current-time");
 let timer = document.querySelector(".start-button");
 let resetButton = document.querySelector("#reset-button");
@@ -39,23 +35,19 @@ let submitButton = document.querySelector("#submit-button");
 let timerCount = 61;
 let timerPenalty = 10;
 let holdInterval = 0;
+let score = 0;
 
-
-//Global variables for the questions
+//Global variables for the question function
 let questionArea = document.querySelector("#questionArea");
 let questionText = document.querySelector("#questionText");
 let introduction = document.querySelector("#introduction");
 let questionIndex = 0;
 
-//Global variables for added text
+//Global variables for added text for High Scores
 let questionEl = document.createElement('div');
 let scoreEl = document.getElementById('final-score');
 let highScoresEl = document.getElementById('high-scores');
 let initEl = document.getElementById('initials');
-//Global variables 
-let score = 0;
-
-
 
 //Function to countdown timer and display it on the browswer
 function startTimer() {
@@ -66,7 +58,6 @@ function startTimer() {
   holdInterval = setInterval(function () {
     timerCount--;
     currentTime.textContent = "Time left: " + timerCount;
-
     if (timerCount <= 0) {
       clearInterval(holdInterval);
       currentTime.textContent = "Out of Time";
@@ -77,28 +68,25 @@ function startTimer() {
 //When start button clicked, calls startTimer function    
 timer.addEventListener('click', startTimer);
 
-
+//function to check the user input against the answer array, add either to score or penalize time 
 function checkAnswer(index) {
   let currentQuestion = quizArray[questionIndex];
-
   if (currentQuestion.answer === index) {
-    score++;  //to update the score.  Works in console.log 
-    // questionEl.textContent = "Correct! The answer is " + quizArray[questionIndex].answer;  THIS ISN'T WORKING is it because of where it is in the function?  No time? no it doesn't work because our answer is now buttons.  ok. oh well. i tried. should i show the answers at the end of quiz? do I really need to?
-  }
+    score++;  
+   }
   else {
     timerCount = timerCount - timerPenalty;  //takes 10 seconds off for wrong answer
-    // questionEl.textContent = "Wrong! The answer is " + quizArray[questionIndex].answer; THIS ISN'T WORKING is because same as above. 
   }
   questionIndex++;
   if (questionIndex < quizArray.length) {
     renderQuestions();
   }
   else {
-    endQuiz();  //NEEDS TO BE CREATED
+    endQuiz(); 
   }
 }
 
-// The following function renders questions/options as buttons
+// Function to render questions/options as buttons
 function renderQuestions() {
   let currentQuestion = quizArray[questionIndex];
   questionText.textContent = currentQuestion.question;
@@ -110,41 +98,35 @@ function renderQuestions() {
 }
 
 
-
-function showAllScores(){
+// Function to retrieve previous high scores from local storage
+function showAllScores() {
   var existingScores = JSON.parse(localStorage.getItem("high-score")) || [];
-  
   var scoreHTML = ``;
-
-  for(var i = 0; i < existingScores.length; i++){
+  for (var i = 0; i < existingScores.length; i++) {
     var scoreObj = existingScores[i];
-
     scoreHTML += `
     <li>Initials: ${scoreObj.initials}  Score: ${scoreObj.finalScore}</li>
     `
   }
-
   var scoreListEl = document.getElementById("score-list");
   scoreListEl.innerHTML = scoreHTML;
-
 }
 
-//to add new highscore
-function addNewScore(){
+//Function to to add new highscore to local storage
+function addNewScore() {
   var existingScores = JSON.parse(localStorage.getItem("high-score")) || [];
   var initials = initEl.value;
-  var scoreObj = {initials: initials, finalScore: score};
+  var scoreObj = { initials: initials, finalScore: score };
   existingScores.push(scoreObj);
-  localStorage.setItem("high-score",JSON.stringify(existingScores));
-
+  localStorage.setItem("high-score", JSON.stringify(existingScores));
   showAllScores();
 }
 
-
+//Function to end the Quiz, and show score
 function endQuiz() {
-  questionArea.classList.add("hide");  //not sure if needed
+  questionArea.classList.add("hide");  
   scoreEl.classList.remove("hide");
-  scoreEl.textContent = "You scored " + score + "out of 5 correctly!";  //make this look nice
+  scoreEl.textContent = "You scored " + score + "out of 5 correctly!";  
   highScoresEl.classList.remove("hide");
   clearInterval(holdInterval);
   currentTime.classList.add("hide");

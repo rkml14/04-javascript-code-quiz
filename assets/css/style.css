@@ -30,13 +30,13 @@ body {
     margin-left: 20px;
     margin-bottom: 10px;
 }
-/*The user is hovering over the element*/
+/*The user is hovering over the  button element*/
 .choiceButton:hover, .start-button:hover, #reset-button:hover, #submit-button:hover{
     background-color: #a683d4;
     color: #fff;
 }
   
-  /* The user is actively pressing down on the element */
+  /* The user is actively pressing down on the button element */
   .choiceButton:active, .start-button:active, #reset-button:active, #submit-button:active {
     font-size: 180%;
     box-shadow: 0 0 10px #000 inset;
