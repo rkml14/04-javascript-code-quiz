@@ -21,7 +21,17 @@ None necessary, it can be accessed via GitHub at [RKML14's Deployed GitHub repo]
 
 ## Usage
 
-Click start! 
+Click start to begin the quiz!
+
+![Initial starting screen, click the start button](./assets/images/start-page.png)
+
+Example of a question from the quiz, click the button to choose the correct answer.  Time left is displayed in the upper right corner.
+
+![Example of a question from the quiz, click the button to choose the correct answer](./assets/images/question-example.png)
+
+Submit user initials for the high score list:
+
+![Submit user initials for the high score list](./assets/images/high-score-submission.png)
 
 ## Thank you
 
