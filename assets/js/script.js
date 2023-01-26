@@ -35,7 +35,7 @@ let quizArray = [
 let currentTime = document.querySelector(".current-time");
 let timer = document.querySelector(".start-button");
 let highScore = document.querySelector("#reset-button");
-let submit = document.querySelector("#submit-button");
+let submitButton = document.querySelector("#submit-button");
 let timerCount = 61;
 let timerPenalty = 10;
 let holdInterval = 0;
@@ -49,8 +49,9 @@ let questionIndex = 0;
 
 //Global variables for added text
 let questionEl = document.createElement('div');
-let scoreEl = document.createElement('p');
-
+let scoreEl = document.getElementById('final-score');
+let highScoresEl = document.getElementById('high-scores');
+let initEl = document.getElementById('initials');
 //Global variables 
 let score = 0;
 
@@ -81,8 +82,8 @@ function checkAnswer(index) {
   let currentQuestion = quizArray[questionIndex];
 
   if (currentQuestion.answer === index) {
-    score++;  //need to do something with this
-    // questionEl.textContent = "Correct! The answer is " + quizArray[questionIndex].answer;  THIS ISN'T WORKING is it because of where it is in the function?  No time? no it doesn't work because our answer is now buttons.  ok. oh well. i tried. 
+    score++;  //to update the score.  Works in console.log 
+    // questionEl.textContent = "Correct! The answer is " + quizArray[questionIndex].answer;  THIS ISN'T WORKING is it because of where it is in the function?  No time? no it doesn't work because our answer is now buttons.  ok. oh well. i tried. should i show the answers at the end of quiz? do I really need to?
   }
   else {
     timerCount = timerCount - timerPenalty;  //takes 10 seconds off for wrong answer
@@ -109,32 +110,47 @@ function renderQuestions() {
 }
 
 
-// function endQuiz() {
-//   questionArea.classList.add("hide");  //not sure if needed
-//   scoreEl.textContent = 'You scored " + score + "out of 5 correctly!";
-//  submit.classList.remove("hide");
-//  clearInterval(timer);
-//  highScore();
-// }
 
-//still need a reset high score button
-// function highScore(){
-//  highScore.classList.remove("hide");
-//  
-// }
-//still need a save inital & high score function
+function showAllScores(){
+  var existingScores = JSON.parse(localStorage.getItem("high-score")) || [];
+  
+  var scoreHTML = ``;
+
+  for(var i = 0; i < existingScores.length; i++){
+    var scoreObj = existingScores[i];
+
+    scoreHTML += `
+    <li>Initials: ${scoreObj.initials}  Score: ${scoreObj.finalScore}</li>
+    `
+  }
+
+  var scoreListEl = document.getElementById("score-list");
+  scoreListEl.innerHTML = scoreHTML;
+
+}
+
+//to add new highscore
+function addNewScore(){
+  var existingScores = JSON.parse(localStorage.getItem("high-score")) || [];
+  var initials = initEl.value;
+  var scoreObj = {initials: initials, finalScore: score};
+  existingScores.push(scoreObj);
+  localStorage.setItem("high-score",JSON.stringify(existingScores));
+
+  showAllScores();
+}
+
+
+function endQuiz() {
+  questionArea.classList.add("hide");  //not sure if needed
+  scoreEl.classList.remove("hide");
+  scoreEl.textContent = "You scored " + score + "out of 5 correctly!";  //make this look nice
+  highScoresEl.classList.remove("hide");
+  clearInterval(holdInterval);
+  currentTime.classList.add("hide");
+}
 
 
 
 
-// function getHighScore(){  //working from module 25
 
-
-// let highScore = {
-//   inititals: initials;
-//   finalScore: score;
-//   };
-//   localStorage.setItem("highScore", JSON.stringify(highScore));
-// }
-
-//i need a clearInerval for the timer in the endquiz

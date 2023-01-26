@@ -12,7 +12,8 @@
 <body>
     <section id="introduction">
         <h1>Coding Quiz Challenge!</h1>
-        <p> Try to answer the following 5 questions code-related questions within the time limit. Keep in mind that incorrect answers will penalize your time by 10 seconds! </p>
+        <p> Try to answer the following 5 questions code-related questions within the time limit. Keep in mind that
+            incorrect answers will penalize your time by 10 seconds! </p>
     </section>
 
     <div class="current-time"> </div>
@@ -41,12 +42,27 @@
 
 
     <!-- put the high scores here  -->
-    <div class="high-scores"></div>
-    <button id="submit-button" class="hide">Submit</button>
-    <button id="reset-button" class="hide">Reset High Score</button>
+
+    <div id="final-score" class="hide"></div>  
+<!-- css this -->
+
+
+    <div id="high-scores" class="hide">  
+<!-- css this -->
+        <form>
+            <label for="initials">Please enter your initials:</label>
+            <input type="text" id="initials" name="initials"><br><br>
+        </form>
+
+        <button id="submit-button" onclick="addNewScore()">Submit</button>
+        <button id="reset-button">Reset High Score</button>
+
+        <ol id="score-list"></ol>
 
 
 
+
+    </div>
 
 
 

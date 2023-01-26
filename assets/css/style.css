@@ -3,7 +3,7 @@ body {
 }
 
 .hide {
-    display: none;
+    display: none !important;  /* if there are 2 competing, this will take precedence */
 }
 
 .current-time {

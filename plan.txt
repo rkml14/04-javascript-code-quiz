@@ -50,3 +50,14 @@ need endQuiz
 
 
 
+I need to stop the timer
+
+
+i need to do something to output a form to fill out for initials.  
+needs submit button
+
+take in the initials and tie it to the score 
+take this string & JSON.stringify it
+needs to show in high score listener
+
+need to go back to start? Play again?
