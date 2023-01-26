@@ -61,6 +61,7 @@ function startTimer() {
     if (timerCount <= 0) {
       clearInterval(holdInterval);
       currentTime.textContent = "Out of Time";
+      endQuiz();
     }
   }, 1000);
 }
