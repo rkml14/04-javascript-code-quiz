@@ -127,7 +127,7 @@ function addNewScore() {
 function endQuiz() {
   questionArea.classList.add("hide");  
   scoreEl.classList.remove("hide");
-  scoreEl.textContent = "You scored " + score + "out of 5 correctly!";  
+  scoreEl.textContent = "You scored " + score + " out of 5 correctly!";  
   highScoresEl.classList.remove("hide");
   clearInterval(holdInterval);
   currentTime.classList.add("hide");

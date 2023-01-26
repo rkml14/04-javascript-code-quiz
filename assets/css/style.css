@@ -6,7 +6,7 @@ body {
     display: none !important;  /* if there are 2 competing, this will take precedence */
 }
 
-#introduction {
+#introduction, #questionArea, #final-score {
     position: absolute;
     left: 30%;
     top: 20%;
@@ -15,10 +15,14 @@ body {
     border: 1px solid purple;
 }
 
-
-
-
-
+#high-scores {
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    width: 500px;
+    height: 500px;
+    padding: 25px;
+    }
 
 .current-time {
     display: flex;
@@ -28,7 +32,6 @@ body {
 }
 
 .questionText {
-    
     font-weight: bold;
     font-size: 2rem;
 }
